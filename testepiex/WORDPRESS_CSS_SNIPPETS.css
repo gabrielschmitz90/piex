@@ -1,0 +1,489 @@
+/*
+  ╔════════════════════════════════════════════════════════════════════════╗
+  ║                    CME - CRUZADA DOS MILITARES ESPÍRITAS               ║
+  ║              REFERÊNCIA RÁPIDA - SNIPPETS CSS & JS                     ║
+  ║                                                                        ║
+  ║  Arquivo para copiar e colar snippets individuais conforme necessário ║
+  ║  Use com "Aparência > Personalizar > CSS Adicional" no WordPress     ║
+  ╚════════════════════════════════════════════════════════════════════════╝
+*/
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 1: APENAS VARIÁVEIS DE COR                                      */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --cme-primary: #007EA7;
+  --cme-primary-dark: #005f82;
+  --cme-primary-light: #e0f4fb;
+  --cme-accent: #9C4080;
+  --cme-accent-dark: #7d3366;
+  --cme-white: #ffffff;
+  --cme-text-primary: #2c3e50;
+  --cme-text-secondary: #637282;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 2: APENAS NAVBAR                                                */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+/* Importar fontes primeiro */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+/* Base navbar */
+nav, .navbar, header, .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #007EA7;
+  box-shadow: 0 4px 24px rgba(0, 126, 167, 0.40);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Scrolled state */
+nav.scrolled, .navbar.scrolled, header.scrolled, .site-header.scrolled {
+  background-color: #005f82;
+  box-shadow: 0 8px 36px rgba(0, 95, 130, 0.55);
+}
+
+/* Links */
+nav a, .nav-link, .navbar a, .menu-item > a {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 11px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Sublinhado animado */
+nav a::after, .nav-link::after, .navbar a::after, .menu-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 11px;
+  width: calc(100% - 22px);
+  height: 2px;
+  background-color: #9C4080;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover */
+nav a:hover, .nav-link:hover, .navbar a:hover, .menu-item > a:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+nav a:hover::after, .nav-link:hover::after, .navbar a:hover::after, .menu-item > a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active */
+nav a.active, .nav-link.active, .active > a, .current-menu-item > a {
+  background-color: rgba(156, 64, 128, 0.18);
+  border: 1px solid rgba(156, 64, 128, 0.30);
+  color: white;
+}
+
+nav a.active::after, .nav-link.active::after, .active > a::after, .current-menu-item > a::after {
+  transform: scaleX(1);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 3: APENAS HERO SECTION                                          */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+.hero, .hero-section, .banner, .page-banner {
+  position: relative;
+  background: linear-gradient(140deg, #005f82 0%, #007EA7 55%, #006a8e 100%);
+  min-height: 500px;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Círculos decorativos */
+.hero::before, .hero-section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(156, 64, 128, 0.10);
+  top: -80px;
+  right: -80px;
+}
+
+.hero::after, .hero-section::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  bottom: -60px;
+  left: -60px;
+}
+
+.hero-content, .hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+/* Badge */
+.badge, .hero-badge {
+  display: inline-block;
+  background-color: rgba(156, 64, 128, 0.22);
+  color: #f0c4e4;
+  border: 1px solid rgba(156, 64, 128, 0.38);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+/* Título */
+h1, .hero h1, .hero-title, .page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: white;
+  line-height: 1.25;
+  margin: 0 0 20px 0;
+}
+
+/* Subtítulo */
+.hero p, .subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 20px 0;
+}
+
+/* Linha decorativa */
+.hero-line, .accent-line, .divider {
+  height: 3px;
+  background-color: #9C4080;
+  border-radius: 2px;
+  margin: 20px auto;
+  width: 72px;
+}
+
+/* Botão primário */
+.btn, .btn-primary, .cta {
+  display: inline-block;
+  background-color: #9C4080;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 18px rgba(156, 64, 128, 0.45);
+  overflow: hidden;
+  position: relative;
+}
+
+.btn:hover, .btn-primary:hover, .cta:hover {
+  background-color: #7d3366;
+  box-shadow: 0 6px 24px rgba(156, 64, 128, 0.60);
+  transform: translateY(-1px);
+}
+
+/* Botão secundário */
+.btn-secondary {
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: white;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-color: white;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 4: APENAS ANIMAÇÕES                                             */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 72px;
+  }
+}
+
+@keyframes ripple-burst {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-burst 0.6s ease-out;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 5: APENAS RESPONSIVO                                            */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  nav, .navbar, header, .site-header {
+    height: 56px;
+  }
+
+  .nav-link, nav a, .navbar a {
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+
+  .hero, .hero-section, .banner {
+    min-height: 350px;
+    padding: 60px 15px;
+  }
+
+  h1, .hero-title, .page-title {
+    font-size: 28px;
+  }
+
+  .hero p, .subtitle {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 6: APENAS ACESSIBILIDADE                                        */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 7: APENAS TIPOGRAFIA                                            */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #2c3e50;
+}
+
+h1, h2, h3, h4, h5, h6, .title, .heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+nav, .navbar, .nav-link, .menu-item a {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 8: MUDANÇA DE CORES (Alternative Themes)                        */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+/* Verde para espiritismo esperança */
+:root.theme-verde {
+  --cme-primary: #27ae60;
+  --cme-primary-dark: #1e8449;
+  --cme-accent: #f39c12;
+}
+
+/* Roxo para espiritualidade */
+:root.theme-roxo {
+  --cme-primary: #8e44ad;
+  --cme-primary-dark: #6c3483;
+  --cme-accent: #e74c3c;
+}
+
+/* Implementar com JavaScript:
+document.documentElement.classList.add('theme-verde');
+*/
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 9: APENAS SEARCH BOX STYLE                                      */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+.search-form, .search-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-form input, .search-box input {
+  background-color: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: white;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-form input::placeholder {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.search-form input:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.40);
+}
+
+.search-form button, .search-box button {
+  background-color: #9C4080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.search-form button:hover, .search-box button:hover {
+  background-color: #7d3366;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 10: APENAS CARDS COM HOVER                                      */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+.card, .card-box, .feature-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(0, 126, 167, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover, .card-box:hover, .feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 126, 167, 0.2);
+  border-color: #007EA7;
+}
+
+.card h3, .card-box h3, .feature-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card p, .card-box p, .feature-card p {
+  color: #637282;
+  font-size: 14px;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* SNIPPET 11: APENAS FOOTER COM HOVER LINKS                               */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+footer {
+  background-color: #005f82;
+  color: white;
+  padding: 40px 20px;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #9C4080;
+  text-decoration: underline;
+}
+
+footer h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+footer p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* FIM DOS SNIPPETS CSS                                                    */
+/* ════════════════════════════════════════════════════════════════════════ */

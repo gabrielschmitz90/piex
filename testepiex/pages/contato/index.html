@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - Cruzadas Militares Espíritas</title>
+  <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container flex-between" style="align-items: center; gap: 20px;">
+      <div class="logo-section">
+        <img src="../../images/logo.svg" alt="Logo Cruzada" class="logo-icon-img">
+        <div>
+          <div class="logo">CME</div>
+          <div class="logo-subtitle">Cruzada dos Militares Espíritas</div>
+        </div>
+      </div>
+      <nav style="flex: 1; margin-left: 30px;">
+        <ul>
+          <li><a href="../../index.html" class="nav-link">Início</a></li>
+          <li><a href="../quem-somos/index.html" class="nav-link">Quem Somos</a></li>
+          <li><a href="../conteudos/index.html" class="nav-link">Biblioteca</a></li>
+          <li><a href="../agenda-eventos/index.html" class="nav-link">Encontre-nos</a></li>
+          <li><a href="../midia/index.html" class="nav-link">Comunicados</a></li>
+          <li><a href="#" class="nav-link">Colabore</a></li>
+          <li><a href="index.html" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <input type="text" placeholder="Digite aqui sua busca">
+        <button>Search</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: white; padding: 60px 20px; text-align: center;">
+      <div class="container">
+        <h1 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Contato</h1>
+        <p>Entre em contato conosco. Estamos sempre prontos para responder suas dúvidas.</p>
+      </div>
+    </section>
+
+    <!-- Informações de Contato e Formulário -->
+    <section>
+      <div class="container">
+        <div class="grid-2 gap-3">
+          <!-- Informações de Contato -->
+          <div>
+            <h3>Informações de Contato</h3>
+            
+            <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--color-primary);">
+              <h5 style="color: var(--color-primary); margin-top: 0;">📧 Email</h5>
+              <p><a href="mailto:contato@cme.com.br">contato@cme.com.br</a></p>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--color-accent);">
+              <h5 style="color: var(--color-accent); margin-top: 0;">📞 Telefone</h5>
+              <p><a href="tel:+55XXXXXXXXXX">(XX) XXXX-XXXX</a></p>
+            </div>
+
+            <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--color-success);">
+              <h5 style="color: var(--color-success); margin-top: 0;">📍 Localização</h5>
+              <p>Rua exemplo, número, complemento<br>
+                Cidade, Estado - CEP</p>
+            </div>
+
+            <div class="card" style="border-left: 4px solid var(--color-info);">
+              <h5 style="color: var(--color-info); margin-top: 0;">🕒 Horário de Atendimento</h5>
+              <p>Segunda a Sexta: 09:00 - 18:00<br>
+                Sábado: 10:00 - 14:00<br>
+                Domingo: Fechado</p>
+            </div>
+          </div>
+
+          <!-- Formulário de Contato -->
+          <div>
+            <h3>Envie-nos uma Mensagem</h3>
+            <form style="background-color: var(--color-light-gray); padding: 30px; border-radius: 8px;">
+              <div style="margin-bottom: 20px;">
+                <label for="nome" style="display: block; margin-bottom: 8px; font-weight: bold; color: var(--color-primary);">Nome</label>
+                <input type="text" id="nome" placeholder="Seu nome completo" required>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="email" style="display: block; margin-bottom: 8px; font-weight: bold; color: var(--color-primary);">Email</label>
+                <input type="email" id="email" placeholder="seu.email@exemplo.com" required>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="assunto" style="display: block; margin-bottom: 8px; font-weight: bold; color: var(--color-primary);">Assunto</label>
+                <select id="assunto" required style="width: 100%; padding: 12px; border: 1px solid var(--color-gray); border-radius: 6px; font-family: var(--font-body);">
+                  <option value="">Selecione um assunto</option>
+                  <option value="duvida">Dúvida</option>
+                  <option value="sugestao">Sugestão</option>
+                  <option value="reclamacao">Reclamação</option>
+                  <option value="parceria">Parceria</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="mensagem" style="display: block; margin-bottom: 8px; font-weight: bold; color: var(--color-primary);">Mensagem</label>
+                <textarea id="mensagem" placeholder="Digite sua mensagem aqui..." rows="6" required></textarea>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label style="display: flex; align-items: center; gap: 10px;">
+                  <input type="checkbox" required>
+                  <span style="font-size: 0.9rem;">Concordo com a política de privacidade</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Enviar Mensagem</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Mapa / Localização -->
+        <div style="text-align: center; background-color: var(--color-light-gray); padding: 40px; border-radius: 8px;">
+          <h3>Localização</h3>
+          <p style="margin-bottom: 20px;">Você também pode nos visitar em nossa sede.</p>
+          <!-- Placeholder para mapa -->
+          <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+            🗺️ Mapa Interativo
+          </div>
+          <p style="margin-top: 20px; font-size: 0.9rem; color: var(--color-dark-gray);">Integre aqui um mapa do Google Maps ou similar</p>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div style="text-align: center; margin-top: 40px;">
+          <h3 style="margin-bottom: 20px;">Siga-nos nas Redes Sociais</h3>
+          <div class="flex-center gap-2">
+            <a href="#" class="btn btn-primary btn-small">Facebook</a>
+            <a href="#" class="btn btn-accent btn-small">Instagram</a>
+            <a href="#" class="btn btn-small" style="background-color: #3B82F6;">Twitter</a>
+            <a href="#" class="btn btn-small" style="background-color: #0EA5E9;">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="grid-3 gap-3" style="margin-bottom: 40px;">
+        <div>
+              <h5 style="color: var(--color-success); margin-top: 0;">Sobre CME</h5>
+          <p>Plataforma de Informação e Experiência dedicada ao compartilhamento de conhecimento.</p>
+        </div>
+        <div>
+          <h5>Links Rápidos</h5>
+          <ul style="list-style: none;">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Conteúdos</a></li>
+            <li><a href="#">Eventos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contato</h5>
+          <p>Email: contato@cme.com.br</p>
+          <p>Telefone: (XX) XXXX-XXXX</p>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
+        <div class="footer-social" style="text-align: center;">
+          <span class="footer-social-label">Siga-nos nas redes sociais</span>
+          <div class="social-icons small">
+            <a href="https://www.instagram.com/cme_jf_cifa?igsh=MWJya2VuOHlxdmJ3ZA==" target="_blank" rel="noopener noreferrer" class="social-icon instagram" title="Instagram da CME">
+              📷
+            </a>
+            <a href="https://www.youtube.com/@cruzadadosmilitaresespirit3499" target="_blank" rel="noopener noreferrer" class="social-icon youtube" title="YouTube da CME">
+              ▶️
+            </a>
+          </div>
+        </div>
+        
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+          <p>&copy; 2026 Cruzadas Militares Espíritas. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

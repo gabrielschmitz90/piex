@@ -1,0 +1,844 @@
+/*
+  ╔════════════════════════════════════════════════════════════════════════╗
+  ║                    CME - CRUZADA DOS MILITARES ESPÍRITAS               ║
+  ║                    IDENTIDADE VISUAL - WORDPRESS CSS                   ║
+  ║                                                                        ║
+  ║  Cores Primárias:                                                      ║
+  ║  - Azul Primário: #007EA7 (dominante)                                 ║
+  ║  - Azul Escuro: #005f82 (scroll/backgrounds escuros)                  ║
+  ║  - Azul Claro: #e0f4fb (backgrounds suaves)                           ║
+  ║  - Rosa/Púrpura: #9C4080 (destaque/CTA)                              ║
+  ║                                                                        ║
+  ║  Tipografia:                                                           ║
+  ║  - Montserrat 700: Títulos e cabeçalhos                               ║
+  ║  - Inter 400/500/600: Corpo, menus, links                             ║
+  ╚════════════════════════════════════════════════════════════════════════╝
+*/
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 1. IMPORT & VARIÁVEIS GLOBAIS                                           */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Cores Primárias */
+  --cme-primary: #007EA7;        /* Azul dominante */
+  --cme-primary-dark: #005f82;   /* Azul escuro (scroll) */
+  --cme-primary-light: #e0f4fb;  /* Azul claro (backgrounds) */
+  --cme-accent: #9C4080;         /* Rosa/Púrpura (CTA) */
+  --cme-accent-dark: #7d3366;    /* Rosa escuro (hover) */
+  
+  /* Neutros */
+  --cme-white: #ffffff;
+  --cme-text-primary: #2c3e50;
+  --cme-text-secondary: #637282;
+  --cme-text-light: rgba(255, 255, 255, 0.85);
+  
+  /* Tipografia */
+  --font-title: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Timing */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+  --transition-smooth: 0.55s ease-out;
+  --transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 2. RESET & BASE STYLES                                                  */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--cme-text-primary);
+  background-color: var(--cme-white);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 3. NAVBAR / MENU DE NAVEGAÇÃO                                           */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+/*
+  NAVBAR BASE
+  
+  Especificações:
+  - Altura: 66px
+  - Fundo: #007EA7 (azul primário)
+  - Sticky (position: sticky)
+  - Z-index: 999 (acima de tudo)
+  - Sombra inicial: 0 4px 24px rgba(0,126,167,0.40), 0 1px 6px rgba(0,0,0,0.18)
+  
+  Como personalizar:
+  1. Altura: mude 66px para outro valor
+  2. Cor: altere --cme-primary em :root
+  3. Sombra: mude os valores de box-shadow
+*/
+
+nav,
+.navbar,
+header,
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--cme-primary);
+  box-shadow: 0 4px 24px rgba(0, 126, 167, 0.40), 0 1px 6px rgba(0, 0, 0, 0.18);
+  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+  height: 66px;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar ao rolar (classe .scrolled adicionada via JavaScript) */
+nav.scrolled,
+.navbar.scrolled,
+header.scrolled,
+.site-header.scrolled {
+  background-color: var(--cme-primary-dark);
+  box-shadow: 0 8px 36px rgba(0, 95, 130, 0.55);
+}
+
+/*
+  LOGO DA NAVBAR
+  
+  Especificações:
+  - "CME" em Montserrat 700, 16px, branco
+  - Subtítulo em Inter 400, 10px, rgba(255,255,255,0.65)
+  - Ícone opcional com borda
+  
+  Classes comuns: .site-logo, .navbar-logo, .logo, .brand
+*/
+
+.navbar-logo,
+.navbar .logo,
+.site-logo,
+.site-header .logo,
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cme-white);
+  transition: opacity var(--transition-fast);
+}
+
+.navbar-logo:hover,
+.navbar .logo:hover,
+.site-logo:hover {
+  opacity: 0.9;
+}
+
+.navbar-logo-text,
+.logo-text,
+.navbar .logo span,
+.site-logo span {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-logo-main,
+.logo-main {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cme-white);
+  line-height: 1;
+}
+
+.navbar-logo-sub,
+.logo-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.2;
+}
+
+.navbar-logo-icon,
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: border-color var(--transition-fast);
+}
+
+.navbar-logo-icon:hover,
+.logo-icon:hover {
+  border-color: rgba(255, 255, 255, 0.90);
+}
+
+/*
+  LINKS DE NAVEGAÇÃO
+  
+  Especificações:
+  - Font: Inter 400, 13px
+  - Cor padrão: rgba(255,255,255,0.85)
+  - Padding: 8px 11px
+  - Border-radius: 6px
+  - Sublinhado animado ::after (2px, #9C4080) ao hover
+  
+  Classes comuns: .nav-link, a[role="menuitem"], .menu-item a, li a
+*/
+
+.nav-link,
+.navbar a,
+nav a,
+header a,
+.site-header a,
+.menu-item > a {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--cme-text-light);
+  padding: 8px 11px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+/* Pseudo-elemento para sublinhado animado */
+.nav-link::after,
+.navbar a::after,
+nav a::after,
+header a::after,
+.site-header a::after,
+.menu-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 11px;
+  width: calc(100% - 22px);
+  height: 2px;
+  background-color: var(--cme-accent);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--transition-cubic);
+}
+
+/* Hover: sublinhado aparece e fundo ligeiro */
+.nav-link:hover,
+.navbar a:hover,
+nav a:hover,
+header a:hover,
+.site-header a:hover,
+.menu-item > a:hover {
+  color: var(--cme-white);
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.nav-link:hover::after,
+.navbar a:hover::after,
+nav a:hover::after,
+header a:hover::after,
+.site-header a:hover::after,
+.menu-item > a:hover::after {
+  transform: scaleX(1);
+}
+
+/*
+  ITEM ATIVO (.active)
+  
+  Especificações:
+  - Fundo: rgba(156,64,128,0.18)
+  - Borda: 1px solid rgba(156,64,128,0.30)
+  - Sublinhado rosa permanente
+  
+  Classes comuns: .active, .current-menu-item, .is-active
+*/
+
+.nav-link.active,
+.navbar a.active,
+nav a.active,
+header a.active,
+.site-header a.active,
+.menu-item.current-menu-item > a,
+.menu-item.is-active > a,
+.nav-link.current,
+a.current {
+  background-color: rgba(156, 64, 128, 0.18);
+  border: 1px solid rgba(156, 64, 128, 0.30);
+  color: var(--cme-white);
+}
+
+.nav-link.active::after,
+.navbar a.active::after,
+nav a.active::after,
+header a.active::after,
+.site-header a.active::after,
+.menu-item.current-menu-item > a::after,
+.menu-item.is-active > a::after,
+.nav-link.current::after,
+a.current::after {
+  transform: scaleX(1);
+}
+
+/*
+  SEARCH BOX / CAMPO DE BUSCA
+  
+  Especificações:
+  - Fundo: rgba(255,255,255,0.13)
+  - Borda: 1px solid rgba(255,255,255,0.22)
+  - Border-radius: 8px
+  - Font: Inter 12px
+  - Botão Search: background #9C4080
+  
+  Classes comuns: .search-form, .wp-block-search, .search-box
+*/
+
+.search-form,
+.search-box,
+.wp-block-search,
+.navbar .search-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-form input[type="search"],
+.search-form input[type="text"],
+.search-box input,
+.wp-block-search input {
+  background-color: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--cme-white);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.search-form input[type="search"]::placeholder,
+.search-form input[type="text"]::placeholder,
+.search-box input::placeholder,
+.wp-block-search input::placeholder {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+.search-form input[type="search"]:focus,
+.search-form input[type="text"]:focus,
+.search-box input:focus,
+.wp-block-search input:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.40);
+}
+
+.search-form button,
+.search-box button,
+.wp-block-search button {
+  background-color: var(--cme-accent);
+  color: var(--cme-white);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-form button:hover,
+.search-box button:hover,
+.wp-block-search button:hover {
+  background-color: var(--cme-accent-dark);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 4. HERO SECTION                                                          */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+/*
+  HERO SECTION BASE
+  
+  Especificações:
+  - Fundo: gradiente linear 140deg
+  - Cores: #005f82 → #007EA7 → #006a8e
+  - Min-height: 500px (ou 100vh)
+  - Padding: 80px 20px
+  
+  Classes comuns: .hero, .hero-section, .banner, .page-banner, .jumbotron
+*/
+
+.hero,
+.hero-section,
+.banner,
+.page-banner,
+.jumbotron {
+  position: relative;
+  background: linear-gradient(140deg, #005f82 0%, #007EA7 55%, #006a8e 100%);
+  min-height: 500px;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Circulos decorativos de fundo */
+.hero::before,
+.hero-section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: rgba(156, 64, 128, 0.10);
+  top: -80px;
+  right: -80px;
+  z-index: 0;
+}
+
+.hero::after,
+.hero-section::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  bottom: -60px;
+  left: -60px;
+  z-index: 0;
+}
+
+.hero-content,
+.hero .container,
+.hero-section .container,
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+/*
+  BADGE / PILL SUPERIOR
+  
+  Especificações:
+  - Fundo: rgba(156,64,128,0.22)
+  - Cor: #f0c4e4
+  - Borda: 1px solid rgba(156,64,128,0.38)
+  - Border-radius: 20px
+  - Font: Inter 500, 11px, uppercase
+  - Letter-spacing: 0.06em
+  
+  Classes: .badge, .pill, .hero-badge, .hero-pill
+*/
+
+.badge,
+.hero-badge,
+.hero .badge,
+.pill {
+  display: inline-block;
+  background-color: rgba(156, 64, 128, 0.22);
+  color: #f0c4e4;
+  border: 1px solid rgba(156, 64, 128, 0.38);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  TÍTULO PRINCIPAL
+  
+  Especificações:
+  - Font: Montserrat 700
+  - Tamanho: 30–38px (30px mobile, 38px desktop)
+  - Cor: #fff
+  - Line-height: 1.25
+  - Entrada: fadeInUp com delays escalonados
+  
+  Classes: h1, .hero h1, .hero-title, .page-title
+*/
+
+h1,
+.hero h1,
+.hero-section h1,
+.hero-title,
+.page-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 38px;
+  color: var(--cme-white);
+  line-height: 1.25;
+  margin: 0 0 20px 0;
+  animation: fadeInUp 0.7s ease-out 0.2s backwards;
+}
+
+/* Efeito por palavra/linha (usar com JS para wrap) */
+.hero h1 .word,
+.hero-section h1 .word {
+  display: inline-block;
+  margin-right: 6px;
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.hero h1 .word:nth-child(1) { animation-delay: 0.2s; }
+.hero h1 .word:nth-child(2) { animation-delay: 0.3s; }
+.hero h1 .word:nth-child(3) { animation-delay: 0.4s; }
+.hero h1 .word:nth-child(4) { animation-delay: 0.5s; }
+.hero h1 .word:nth-child(n+5) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  SUBTÍTULO
+  
+  Especificações:
+  - Font: Inter 400
+  - Tamanho: 15px
+  - Cor: rgba(255,255,255,0.75)
+  - Margin: 20px 0
+  
+  Classes: .hero p, .subtitle, .hero-subtitle
+*/
+
+.hero p,
+.hero-section p,
+.subtitle,
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 20px 0;
+  animation: fadeInUp 0.7s ease-out 0.35s backwards;
+}
+
+/*
+  LINHA DECORATIVA ANIMADA
+  
+  Especificações:
+  - Height: 3px
+  - Background: #9C4080 (rosa)
+  - Width: 0 → 72px em 1.1s
+  - Delay: 0.3s
+  - Border-radius: 2px
+  
+  Classes: .hero-line, .accent-line, .divider
+*/
+
+.hero-line,
+.accent-line,
+.divider {
+  height: 3px;
+  background-color: var(--cme-accent);
+  border-radius: 2px;
+  margin: 20px auto;
+  animation: expandWidth 1.1s var(--transition-cubic) 0.3s backwards;
+  width: 72px;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 72px;
+  }
+}
+
+/*
+  BOTÕES CTA
+  
+  PRIMÁRIO:
+  - Background: #9C4080
+  - Cor: #fff
+  - Padding: 12px 24px
+  - Font: Inter 600, 13px
+  - Sombra: 0 4px 18px rgba(156,64,128,0.45)
+  - Hover: #7d3366, sombra intensifica, translateY(-1px)
+  - Efeito ripple ao clicar
+  
+  SECUNDÁRIO:
+  - Transparent
+  - Borda: 1.5px solid rgba(255,255,255,0.55)
+  - Hover: fundo rgba(255,255,255,0.10), borda #fff
+  
+  Classes: .btn, .btn-primary, .btn-secondary, .cta, .hero .btn
+*/
+
+.btn,
+.button,
+.btn-primary,
+.cta,
+.hero .btn,
+.hero-section .btn,
+a.btn {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all var(--transition-fast);
+  animation: fadeInUp 0.7s ease-out 0.5s backwards;
+}
+
+/* Botão Primário */
+.btn-primary,
+.btn.btn-primary,
+.cta,
+.hero .btn:not(.btn-secondary),
+.hero-section .btn:not(.btn-secondary) {
+  background-color: var(--cme-accent);
+  color: var(--cme-white);
+  box-shadow: 0 4px 18px rgba(156, 64, 128, 0.45);
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover,
+.cta:hover,
+.hero .btn:not(.btn-secondary):hover,
+.hero-section .btn:not(.btn-secondary):hover {
+  background-color: var(--cme-accent-dark);
+  box-shadow: 0 6px 24px rgba(156, 64, 128, 0.60);
+  transform: translateY(-1px);
+}
+
+/* Botão Secundário */
+.btn-secondary,
+.btn.btn-secondary,
+.hero .btn.btn-secondary,
+.hero-section .btn.btn-secondary {
+  background-color: transparent;
+  color: var(--cme-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+}
+
+.btn-secondary:hover,
+.btn.btn-secondary:hover,
+.hero .btn.btn-secondary:hover,
+.hero-section .btn.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-color: var(--cme-white);
+  transform: translateY(-1px);
+}
+
+/* Efeito ripple (criado por JavaScript) */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(0);
+  animation: ripple-burst 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-burst {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 5. SCROLL REVEAL                                                         */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+/*
+  SCROLL REVEAL
+  
+  Especificações:
+  - Classe: .reveal (adicionada via JS)
+  - Classe visível: .visible
+  - Animação: fadeInUp (translateY 24px → 0, opacity 0 → 1)
+  - Duração: 0.55s
+  - Easing: ease-out
+  
+  Como usar:
+  1. Adicionar classe .reveal aos elementos que devem animar
+  2. JavaScript observa com IntersectionObserver
+  3. Quando visível, adiciona .visible que ativa animação
+*/
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 6. TRANSIÇÕES GLOBAIS                                                    */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+a,
+button,
+input,
+textarea,
+select {
+  transition: all var(--transition-fast);
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 7. ACESSIBILIDADE - prefers-reduced-motion                              */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════ */
+/* 8. RESPONSIVO - MOBILE FIRST                                             */
+/* ════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Navbar */
+  nav,
+  .navbar,
+  header,
+  .site-header {
+    height: 56px;
+  }
+
+  .navbar-logo-main,
+  .logo-main {
+    font-size: 14px;
+  }
+
+  .nav-link,
+  .navbar a,
+  nav a,
+  header a {
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  /* Hero */
+  .hero,
+  .hero-section,
+  .banner,
+  .page-banner {
+    min-height: 350px;
+    padding: 60px 15px;
+  }
+
+  h1,
+  .hero h1,
+  .hero-section h1,
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero p,
+  .hero-section p,
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .hero-line,
+  .accent-line {
+    width: 50px;
+  }
+
+  @keyframes expandWidth {
+    from {
+      width: 0;
+    }
+    to {
+      width: 50px;
+    }
+  }
+
+  .btn,
+  .button {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1,
+  .hero h1,
+  .hero-section h1,
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero,
+  .hero-section,
+  .banner,
+  .page-banner {
+    min-height: 300px;
+    padding: 50px 10px;
+  }
+
+  .badge,
+  .hero-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+  }
+}

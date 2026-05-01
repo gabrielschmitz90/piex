@@ -1,0 +1,31 @@
+/* 
+  PALETA DE CORES - CRUZADAS MILITARES ESPÍRITAS
+  Definição centralizada das cores do projeto
+*/
+
+:root {
+  /* Cores Primárias */
+  --color-primary: #007EA7;        /* Azul Principal */
+  --color-accent: #9C4080;         /* Rosa/Púrpura - Destaque */
+  
+  /* Cores Neutras */
+  --color-white: #FFFFFF;
+  --color-light-gray: #F5F5F5;
+  --color-gray: #CCCCCC;
+  --color-dark-gray: #666666;
+  --color-black: #1A1A1A;
+  
+  /* Cores Funcionais */
+  --color-success: #10B981;        /* Verde - Sucesso */
+  --color-warning: #F59E0B;        /* Laranja - Aviso */
+  --color-error: #EF4444;          /* Vermelho - Erro */
+  --color-info: #3B82F6;           /* Azul Claro - Informação */
+  
+  /* Variações do Azul Primário */
+  --color-primary-dark: #005A7F;
+  --color-primary-light: #40A4C8;
+  
+  /* Variações do Rosa/Púrpura */
+  --color-accent-dark: #7A2F60;
+  --color-accent-light: #C87FB3;
+}
